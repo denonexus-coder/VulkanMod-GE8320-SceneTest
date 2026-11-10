@@ -54,8 +54,8 @@ static bool initVulkan() {
 
     VkAndroidSurfaceCreateInfoKHR surfaceCI = { VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR };
     surfaceCI.window = g_Window;
-    auto vkCreateAndroidSurfaceKHR = (PFN_vkCreateAndroidSurfaceKHR)vkGetInstanceProcAddr(g_Instance, "vkCreateAndroidSurfaceKHR");
-    if (vkCreateAndroidSurfaceKHR(g_Instance, &surfaceCI, nullptr, &g_Surface) != VK_SUCCESS) {
+    PFN_vkCreateAndroidSurfaceKHR pfnCreateSurface = (PFN_vkCreateAndroidSurfaceKHR)vkGetInstanceProcAddr(g_Instance, "vkCreateAndroidSurfaceKHR");
+    if (pfnCreateSurface(g_Instance, &surfaceCI, nullptr, &g_Surface) != VK_SUCCESS) {
         LOGE("Failed to create Android surface");
         return false;
     }
