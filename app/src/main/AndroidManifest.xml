@@ -4,7 +4,7 @@
         android:allowBackup="true"
         android:label="VulkanMod Scene Test"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <activity
             android:name=".MainActivity"
             android:exported="true"
